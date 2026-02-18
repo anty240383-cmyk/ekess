@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sito Ronaldo Password</title>
+    <style>
+        /* Sfondo con Ronaldo */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://images2.minutemediacdn.com/image/upload/c_crop,w_4911,h_2762,x_0,y_258/c_fill,w_1440,ar_16:9,f_auto,q_auto,g_auto/images/getty/mmsport/90min_it_international_web/01gzf6m8dcv9yv6atj93.jpg'); /* Immagine di Ronaldo */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Il quadrato centrale */
+        .container-principale {
+            width: 350px;
+            height: 350px;
+            background-color: rgba(255, 255, 255, 0.9); /* Bianco leggermente trasparente */
+            border: 3px solid #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Quadratino per la password */
+        .input-password {
+            padding: 10px;
+            border: 2px solid #333;
+            margin-bottom: 20px;
+            width: 200px;
+            text-align: center;
+        }
+
+        /* Pulsante Invia Blu */
+        .btn-invia {
+            background-color: #0047AB; /* Blu */
+            color: white;
+            padding: 10px 30px;
+            border: 2px solid #002e6e;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.1s;
+        }
+
+        .btn-invia:active {
+            transform: scale(0.95);
+        }
+
+        /* Nascondi il video inizialmente */
+        #video-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: 100;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-principale">
+        <h3 style="margin-bottom: 5px;">Inserisci Password</h3>
+        <input type="password" class="input-password" placeholder="Password...">
+        
+        <button class="btn-invia" onclick="faiPartireVideo()">INVIA</button>
+    </div>
+
+    <div id="video-container">
+        <video id="mioVideo">
+            <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4">
+            Il tuo browser non supporta i video.
+        </video>
+    </div>
+
+    <script>
+        function faiPartireVideo() {
+            const videoDiv = document.getElementById('video-container');
+            const video = document.getElementById('mioVideo');
+            
+            // Mostra il contenitore del video
+            videoDiv.style.display = 'block';
+            
+            // Riproduce il video
+            video.play();
+
+            // Opzionale: torna alla home quando il video finisce
+            video.onended = function() {
+                videoDiv.style.display = 'none';
+            };
+        }
+    </script>
+
+</body>
+</html>
